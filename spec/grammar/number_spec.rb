@@ -14,4 +14,9 @@ describe_rules_for 'number' do
   it 'does not recognize integers starting by 0' do
     '02'.should_not be_recognized
   end
+
+  it 'recognizes integers with exponents' do
+    '1e2'.should be_recognized
+    '1E10'.should be_recognized
+  end
 end

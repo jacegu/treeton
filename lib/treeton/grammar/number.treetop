@@ -1,5 +1,9 @@
 grammar Json
   rule number
-    '-'? [1-9] [0-9]*
+    '-'? [1-9] [0-9]* exponent?
+  end
+
+  rule exponent
+    ('e' / 'E') [0-9]+
   end
 end
