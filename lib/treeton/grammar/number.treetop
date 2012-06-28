@@ -1,6 +1,14 @@
 grammar Json
   rule number
-    '-'? [1-9] [0-9]* exponent?
+    integer_part decimal_part? exponent?
+  end
+
+  rule integer_part
+    '-'? ([1-9] [0-9]+ / [0-9])
+  end
+
+  rule decimal_part
+    '.' [0-9]+
   end
 
   rule exponent
