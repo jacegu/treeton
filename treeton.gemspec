@@ -14,4 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "treeton"
   gem.require_paths = ["lib"]
   gem.version       = Treeton::VERSION
+
+  gem.add_runtime_dependency 'treetop', '~>1.4'
+  gem.add_development_dependency 'rspec'
 end
