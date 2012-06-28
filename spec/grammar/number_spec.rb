@@ -10,4 +10,8 @@ describe_rules_for 'number' do
     '-4'.should be_recognized
     '-8420'.should be_recognized
   end
+
+  it 'does not recognize integers starting by 0' do
+    '02'.should_not be_recognized
+  end
 end
