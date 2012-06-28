@@ -1,13 +1,19 @@
+require 'treeton/grammar/array'
 require 'treeton/grammar/number'
 require 'treeton/grammar/string'
 
 module Treeton
   grammar Value
+    include Array
     include Number
     include String
 
     rule value
-      string / number / true / false / null
+      string / number / array / true / false / null
+    end
+
+    rule array
+      '[' value? (comma value)* ']'
     end
 
     rule true

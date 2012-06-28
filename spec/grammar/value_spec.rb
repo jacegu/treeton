@@ -8,4 +8,5 @@ describe_rules_for 'value' do
   it_recognizes 'null'
   it_recognizes '1000'
   it_recognizes '"a\tfull-string\n\u4AB0\""'
+  it_recognizes '[1, "array", true, false, null]'
 end

@@ -1,13 +1,5 @@
-require 'treeton/grammar/value'
-
 module Treeton
   grammar Array
-    include Value
-
-    rule array
-      '[' value? (comma value)* ']'
-    end
-
     rule comma
       [\s]* ',' [\s]*
     end

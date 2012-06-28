@@ -1,7 +1,7 @@
-require 'treeton/grammar/array'
+require 'treeton/grammar/value'
 
 describe_rules_for 'Array' do
-  let(:parser) { Treeton::ArrayParser.new }
+  let(:parser) { Treeton::ValueParser.new }
 
   it 'recognizes an empty array' do
     '[]'.should be_recognized
@@ -16,5 +16,9 @@ describe_rules_for 'Array' do
     '["a", "b"]'.should be_recognized
     '["str"  ,  "ing"]'.should be_recognized
     '[null, true, false, 334, "array"]'.should be_recognized
+  end
+
+  it 'recognizes arrays of arrays' do
+    '[[1], [2], ["a", false]]'.should be_recognized
   end
 end
