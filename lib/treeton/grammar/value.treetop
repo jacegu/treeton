@@ -3,8 +3,8 @@ require 'treeton/grammar/string'
 
 module Treeton
   grammar Value
-    include Treeton::String
     include Number
+    include String
 
     rule value
       string / number / true / false / null
