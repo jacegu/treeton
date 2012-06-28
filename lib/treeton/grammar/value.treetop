@@ -1,21 +1,23 @@
 require 'treeton/grammar/number'
 
-grammar Value
-  include Number
+module Treeton
+  grammar Value
+    include Number
 
-  rule value
-    number / true / false / null
-  end
+    rule value
+      number / true / false / null
+    end
 
-  rule true
-    'true'
-  end
+    rule true
+      'true'
+    end
 
-  rule false
-    'false'
-  end
+    rule false
+      'false'
+    end
 
-  rule null
-    'null'
+    rule null
+      'null'
+    end
   end
 end
