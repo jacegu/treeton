@@ -1,6 +1,6 @@
 require 'treetop'
 
-RSpec::Matchers.define :be_recognized_by do |grammar|
+RSpec::Matchers.define :be_recognized do
   match do |text|
     not parser.parse(text).nil?
   end
@@ -10,32 +10,25 @@ RSpec::Matchers.define :be_recognized_by do |grammar|
   end
 
   failure_message_for_should do |text|
-    %Q'expected #{grammar} to recognize "#{text}"'
-  end
-
-  def parser
-    parser_class.new
-  end
-
-  def parser_class
-    Kernel.const_get("#{grammar}Parser")
+    %Q'expected "#{text}" to be recognized by grammar rules'
   end
 end
 
 def describe_rules_for(rule, &grammar_spec)
   describe "recognizing #{rule}" do
     let(:grammar) { 'Json' }
+    let(:parser)  { JsonParser.new }
     instance_eval &grammar_spec
   end
 end
 
 module GrammarExpectations
   def it_recognizes(text)
-    it { text.should be_recognized_by grammar }
+    it { text.should be_recognized }
   end
 
   def xit_recognizes(text)
-    xit { text.should be_recognized_by grammar }
+    xit { text.should be_recognized }
   end
 end
 
