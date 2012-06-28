@@ -10,7 +10,7 @@ RSpec::Matchers.define :be_recognized do
   end
 
   failure_message_for_should do |text|
-    %Q'expected "#{text}" to be recognized by grammar rules'
+    %Q'expected #{text} to be recognized by grammar rules'
   end
 end
 
