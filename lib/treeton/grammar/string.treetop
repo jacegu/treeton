@@ -1,0 +1,15 @@
+grammar JsonString
+
+  rule string
+    '"' ( escaped_character / hexadecimal )? '"'
+  end
+
+  rule escaped_character
+    '\"' / '\/' / '\\\\' / '\b'/ '\f' / '\n' / '\r' / '\t'
+  end
+
+  rule hexadecimal
+    '\u' [a-fA-F0-9] 4..4
+  end
+
+end
