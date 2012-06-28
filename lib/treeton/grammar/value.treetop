@@ -1,6 +1,10 @@
+require 'treeton/grammar/number'
+
 grammar Value
+  include Number
+
   rule value
-    true / false / null
+    number / true / false / null
   end
 
   rule true
