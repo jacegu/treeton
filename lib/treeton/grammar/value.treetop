@@ -1,11 +1,13 @@
 require 'treeton/grammar/number'
+require 'treeton/grammar/string'
 
 module Treeton
   grammar Value
+    include Treeton::String
     include Number
 
     rule value
-      number / true / false / null
+      string / number / true / false / null
     end
 
     rule true

@@ -7,4 +7,5 @@ describe_rules_for 'value' do
   it_recognizes 'false'
   it_recognizes 'null'
   it_recognizes '1000'
+  it_recognizes '"a\tfull-string\n\u4AB0\""'
 end
