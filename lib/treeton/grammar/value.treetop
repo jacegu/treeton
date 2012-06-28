@@ -1,0 +1,17 @@
+grammar Json
+  rule value
+    true / false / null
+  end
+
+  rule true
+    'true'
+  end
+
+  rule false
+    'false'
+  end
+
+  rule null
+    'null'
+  end
+end
