@@ -1,7 +1,11 @@
 grammar JsonString
 
   rule string
-    '"' ( escaped_character / hexadecimal )? '"'
+    '"' (escaped_character / hexadecimal / valid_character)* '"'
+  end
+
+  rule valid_character
+    !'"' !'\\' .
   end
 
   rule escaped_character
