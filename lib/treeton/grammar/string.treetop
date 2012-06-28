@@ -1,19 +1,21 @@
-grammar JsonString
+module Treeton
+  grammar String
 
-  rule string
-    '"' (escaped_character / hexadecimal / valid_character)* '"'
+    rule string
+      '"' (escaped_character / hexadecimal / valid_character)* '"'
+    end
+
+    rule valid_character
+      !'"' !'\\' .
+    end
+
+    rule escaped_character
+      '\"' / '\/' / '\\\\' / '\b'/ '\f' / '\n' / '\r' / '\t'
+    end
+
+    rule hexadecimal
+      '\u' [a-fA-F0-9] 4..4
+    end
+
   end
-
-  rule valid_character
-    !'"' !'\\' .
-  end
-
-  rule escaped_character
-    '\"' / '\/' / '\\\\' / '\b'/ '\f' / '\n' / '\r' / '\t'
-  end
-
-  rule hexadecimal
-    '\u' [a-fA-F0-9] 4..4
-  end
-
 end

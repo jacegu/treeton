@@ -1,7 +1,7 @@
 require 'treeton/grammar/string'
 
 describe_rules_for 'string' do
-  let(:parser) { JsonStringParser.new }
+  let(:parser) { Treeton::StringParser.new }
 
   context 'escaped characters' do
     it 'recognizes an escaped quotation mark' do
