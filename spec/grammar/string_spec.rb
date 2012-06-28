@@ -64,6 +64,10 @@ describe_rules_for 'string' do
       %q{"Z"}.should be_recognized
       %q{"5"}.should be_recognized
     end
+
+    it 'does not recognize control characters' do
+      %q{"\a"}.should_not be_recognized
+    end
   end
 
   context 'strings' do
