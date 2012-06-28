@@ -1,4 +1,4 @@
-grammar Json
+grammar Number
   rule number
     integer_part decimal_part? exponent?
   end

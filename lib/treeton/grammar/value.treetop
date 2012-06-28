@@ -1,4 +1,4 @@
-grammar Json
+grammar Value
   rule value
     true / false / null
   end
