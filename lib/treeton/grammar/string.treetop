@@ -2,15 +2,19 @@ module Treeton
   grammar String
 
     rule string
-      '"' (escaped_character / hexadecimal / valid_character)* '"'
+      quotation_mark (escaped_character / character)* quotation_mark
     end
 
-    rule valid_character
+    rule quotation_mark
+      [\s]* '"' [\s]*
+    end
+
+    rule character
       !'"' !'\\' .
     end
 
     rule escaped_character
-      '\"' / '\/' / '\\\\' / '\b'/ '\f' / '\n' / '\r' / '\t'
+      '\"' / '\/' / '\\\\' / '\b'/ '\f' / '\n' / '\r' / '\t' / hexadecimal
     end
 
     rule hexadecimal
