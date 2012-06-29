@@ -1,5 +1,13 @@
 module Treeton
   grammar Array
+    rule open_square_bracket
+      [\s]* '[' [\s]*
+    end
+
+    rule close_square_bracket
+      [\s]* ']' [\s]*
+    end
+
     rule comma
       [\s]* ',' [\s]*
     end

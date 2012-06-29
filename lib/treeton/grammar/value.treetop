@@ -9,11 +9,15 @@ module Treeton
     include String
 
     rule value
-      string / number / array / true / false / null
+      string / number / array / object / true / false / null
     end
 
     rule array
-      '[' value? (comma value)* ']'
+      open_square_bracket value? (comma value)* close_square_bracket
+    end
+
+    rule object
+      '{}'
     end
 
     rule true
