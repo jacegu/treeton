@@ -1,0 +1,12 @@
+module Treeton
+  grammar Object
+
+    rule open_curly_brace
+      [\s]* '{' [\s]*
+    end
+
+    rule close_curly_brace
+      [\s]* '}' [\s]*
+    end
+  end
+end
