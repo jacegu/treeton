@@ -29,7 +29,7 @@ This is the profiling of Treeton and Yajl when parsing the same JSON:
 ## The Grammar
 
 You can read the whole
-[JSON rfc](http://www.ietf.org/rfc/rfc4627.txt)
+[JSON RFC](http://www.ietf.org/rfc/rfc4627.txt)
 but you can get the grammar in a nutshell just by looking at the railroad
 diagrams.
 
@@ -46,28 +46,27 @@ to Treetop rules:
 
 Which is translated nicely into:
 
-```ruby
-  rule value
-    string / number / array / object / true / false / null
-  end
+```treetop
+rule value
+  string / number / array / object / true / false / null
 end
 ```
 
 The boolean values `true`, `false` and the `null` value are terminals expressed
 in their own rules:
 
-```ruby
-  rule true
-    'true'
-  end
+```treetop
+rule true
+  'true'
+end
 
-  rule false
-    'false'
-  end
+rule false
+  'false'
+end
 
-  rule null
-    'null'
-  end
+rule null
+  'null'
+end
 ```
 
 ### Numbers
@@ -76,10 +75,10 @@ in their own rules:
 
 This has been translated into the following rule:
 
-```ruby
-  rule number
-    integer_part decimal_part? exponent?
-  end
+```treetop
+rule number
+  integer_part decimal_part? exponent?
+end
 ```
 
 You can chechout the detailed rules in the
@@ -92,10 +91,10 @@ You can chechout the detailed rules in the
 
 The rule for strings is pretty straightforward:
 
-```ruby
-  rule string
-    quotation_mark (escaped_character / character)* quotation_mark
-  end
+```treetop
+rule string
+  quotation_mark (escaped_character / character)* quotation_mark
+end
 ```
 
 The definition of each of this sub-rules can be found in the
@@ -113,10 +112,10 @@ one element.
 Notice the reference to the previous rule, `value`, which makes the `array`
 able to hold any of the types recognized by JSON grammar.
 
-```ruby
-  rule array
-    open_square_bracket value? (comma value)* close_square_bracket
-  end
+```treetop
+rule array
+  open_square_bracket value? (comma value)* close_square_bracket
+end
 ```
 
 The sub-rules can be found in the 
@@ -129,10 +128,10 @@ The sub-rules can be found in the
 
 Object grammar rule is pretty similar to the array's one
 
-```ruby
-  rule object
-    open_curly_brace (string colon value)? (comma string colon value)* close_curly_brace
-  end
+```treetop
+rule object
+  open_curly_brace (string colon value)? (comma string colon value)* close_curly_brace
+end
 ```
 
 The sub-rules can be found in the 
