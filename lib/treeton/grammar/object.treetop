@@ -1,6 +1,5 @@
 module Treeton
   grammar Object
-
     rule open_curly_brace
       [\s]* '{' [\s]*
     end

@@ -1,10 +1,5 @@
 module Treeton
   grammar String
-
-    rule string
-      quotation_mark (escaped_character / character)* quotation_mark
-    end
-
     rule quotation_mark
       [\s]* '"' [\s]*
     end
@@ -20,6 +15,5 @@ module Treeton
     rule hexadecimal
       '\u' [a-fA-F0-9] 4..4
     end
-
   end
 end

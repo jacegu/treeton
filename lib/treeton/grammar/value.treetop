@@ -14,6 +14,14 @@ module Treeton
       string / number / array / object / true / false / null
     end
 
+    rule string
+      quotation_mark (escaped_character / character)* quotation_mark
+    end
+
+    rule number
+      integer_part decimal_part? exponent?
+    end
+
     rule array
       open_square_bracket value? (comma value)* close_square_bracket
     end
