@@ -19,7 +19,7 @@ module Treeton
     end
 
     rule object
-      open_curly_brace close_curly_brace
+      open_curly_brace (string colon value)* close_curly_brace
     end
 
     rule true

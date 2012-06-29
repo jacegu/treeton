@@ -8,5 +8,9 @@ module Treeton
     rule close_curly_brace
       [\s]* '}' [\s]*
     end
+
+    rule colon
+      [\s]* ':' [\s]*
+    end
   end
 end
