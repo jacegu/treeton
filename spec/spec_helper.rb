@@ -14,8 +14,25 @@ RSpec::Matchers.define :be_recognized do
   end
 end
 
+RSpec::Matchers.define :be_translated_to do |translation|
+  match do |text|
+    parser.parse(text).translate.should eq translation
+  end
+
+  description do |text|
+    "translate #{text} into #{translation.inspect}"
+  end
+
+  failure_message_for_should do |text|
+    "expected #{text} to be translated into #{translation.inspect}"
+  end
+end
+
+
+
 def describe_rules_for(rule, &grammar_spec)
   describe "recognizing #{rule}" do
+    let(:parser) { Treeton::JsonParser.new }
     instance_eval &grammar_spec
   end
 end
