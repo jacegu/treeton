@@ -1,6 +1,8 @@
-require 'treeton/grammar/json'
+require 'treeton/grammar/value'
 
 describe_rules_for 'values' do
+  let(:parser) { Treeton::ValueParser.new }
+
   it_recognizes 'true'
   it_recognizes 'false'
   it_recognizes 'null'

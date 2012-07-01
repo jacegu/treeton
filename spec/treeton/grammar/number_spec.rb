@@ -1,6 +1,8 @@
-require 'treeton/grammar/json'
+require 'treeton/grammar/value'
 
 describe_rules_for 'number' do
+  let(:parser) { Treeton::ValueParser.new }
+
   it 'recognizes positive integers' do
     '0'.should be_recognized
     '1'.should be_recognized

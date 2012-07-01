@@ -1,6 +1,8 @@
 require 'treeton/grammar/json'
 
 describe_rules_for 'Array' do
+  let(:parser) { Treeton::ValueParser.new }
+
   it 'recognizes an empty array' do
     '[]'.should be_recognized
   end

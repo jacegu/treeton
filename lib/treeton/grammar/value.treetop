@@ -20,7 +20,7 @@ module Treeton
     end
 
     rule number
-      integer_part decimal_part? exponent?
+      integer_part decimal_part? exponent? <Nodes::NumberNode>
     end
 
     rule array

@@ -1,15 +1,11 @@
-require 'treeton/grammar/array'
-require 'treeton/grammar/number'
-require 'treeton/grammar/object'
-require 'treeton/grammar/string'
 require 'treeton/grammar/value'
 
 module Treeton
   grammar Json
-    include Array
-    include Number
-    include Object
-    include String
     include Value
+
+    rule json
+      array / object
+    end
   end
 end
