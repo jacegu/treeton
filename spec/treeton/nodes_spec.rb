@@ -3,6 +3,14 @@ require 'treeton/grammar/value'
 describe 'Terminal Nodes' do
   let(:parser) { Treeton::ValueParser.new }
 
+  describe Treeton::StringNode do
+    it 'should be translated to the string' do
+      '""'.should be_translated_to ''
+      '"a\rstring\n\t"'.should be_translated_to "a\rstring\n\t"
+      '"\u005b\"array\"\u005d"'.should be_translated_to '["array"]'
+    end
+  end
+
   describe Treeton::NumberNode do
     it 'should be translated to the number' do
       '0'.should be_translated_to 0

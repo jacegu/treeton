@@ -16,7 +16,7 @@ module Treeton
     end
 
     rule string
-      quotation_mark (escaped_character / character)* quotation_mark
+      quotation_mark (escaped_character / character)* quotation_mark <StringNode>
     end
 
     rule number

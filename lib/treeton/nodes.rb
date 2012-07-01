@@ -1,5 +1,11 @@
 module Treeton
 
+  class StringNode < Treetop::Runtime::SyntaxNode
+    def translate
+      eval text_value
+    end
+  end
+
   class NumberNode < Treetop::Runtime::SyntaxNode
     def translate
       eval text_value
