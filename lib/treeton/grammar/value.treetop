@@ -2,7 +2,7 @@ require 'treeton/grammar/array'
 require 'treeton/grammar/number'
 require 'treeton/grammar/object'
 require 'treeton/grammar/string'
-require 'treeton/nodes/terminal_nodes'
+require 'treeton/nodes'
 
 module Treeton
   grammar Value
@@ -20,7 +20,7 @@ module Treeton
     end
 
     rule number
-      integer_part decimal_part? exponent? <Nodes::NumberNode>
+      integer_part decimal_part? exponent? <NumberNode>
     end
 
     rule array
@@ -32,15 +32,15 @@ module Treeton
     end
 
     rule true
-      'true' <Nodes::TrueNode>
+      'true' <TrueNode>
     end
 
     rule false
-      'false' <Nodes::FalseNode>
+      'false' <FalseNode>
     end
 
     rule null
-      'null' <Nodes::NilNode>
+      'null' <NilNode>
     end
   end
 end
