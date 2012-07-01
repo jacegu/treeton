@@ -2,6 +2,7 @@ require 'treeton/grammar/array'
 require 'treeton/grammar/number'
 require 'treeton/grammar/object'
 require 'treeton/grammar/string'
+require 'treeton/nodes/terminal_nodes'
 
 module Treeton
   grammar Value
@@ -31,15 +32,15 @@ module Treeton
     end
 
     rule true
-      'true'
+      'true' <Nodes::TrueNode>
     end
 
     rule false
-      'false'
+      'false' <Nodes::FalseNode>
     end
 
     rule null
-      'null'
+      'null' <Nodes::NilNode>
     end
   end
 end

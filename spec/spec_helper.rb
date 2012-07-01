@@ -16,7 +16,7 @@ end
 
 RSpec::Matchers.define :be_translated_to do |translation|
   match do |text|
-    parser.parse(text).translate.should eq translation
+    parser.parse(text).translate == translation
   end
 
   description do |text|
@@ -27,8 +27,6 @@ RSpec::Matchers.define :be_translated_to do |translation|
     "expected #{text} to be translated into #{translation.inspect}"
   end
 end
-
-
 
 def describe_rules_for(rule, &grammar_spec)
   describe "recognizing #{rule}" do
