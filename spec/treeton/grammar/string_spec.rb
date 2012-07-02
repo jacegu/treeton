@@ -89,9 +89,5 @@ describe_rules_for 'string' do
     it 'recognizes strings with characters by hexadecimal code' do
       %q{"\u234F this and \u8840 is \u2343 \r\n"}.should be_recognized
     end
-
-    it "recoginzes strings with whitespace around" do
-      %Q{ \n\t"string" \n\r }.should be_recognized
-    end
   end
 end
