@@ -1,7 +1,7 @@
 module Treeton
   grammar Whitespace
     rule whitespace
-      #[\s] includes linefeed \f which JSON grammar
+      #[\s] can not be used because it includes linefeed (\f) which JSON grammar
       #does not support as whitespace
       ' ' / [\n\r\t]
     end
