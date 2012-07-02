@@ -10,4 +10,10 @@ describe Treeton::Parser do
     ast.stub(:translate).and_return(nil)
     subject.parse('null').should be nil
   end
+
+  it 'raises a SyntaxError if the input cannot be parsed' do
+    treetop_parser.stub(:failure_reason).and_return('parse failed message')
+    treetop_parser.stub(:parse).and_return nil
+    expect { subject.parse('not json') }.to raise_error Treeton::SyntaxError
+  end
 end

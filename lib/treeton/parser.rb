@@ -9,7 +9,20 @@ module Treeton
     end
 
     def parse(input)
-      @parser.parse(input).translate
+      translate @parser.parse(input)
+    end
+
+    private
+
+    def translate(parse_result)
+      raise SyntaxError.new(@parser) if parse_result.nil?
+      parse_result.translate
+    end
+  end
+
+  class SyntaxError < Exception
+    def initialize(parser)
+      super parser.failure_reason
     end
   end
 end
