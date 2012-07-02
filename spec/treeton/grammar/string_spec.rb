@@ -9,40 +9,40 @@ describe_rules_for 'string' do
     end
 
     it 'recognizes a solidus' do
-      %q{"\/"}.should be_recognized
+      %Q{"\/"}.should be_recognized
     end
 
     it 'recognizes a reverse solidus' do
-      %q{"\\\\"}.should be_recognized
+      %Q{"\\\\"}.should be_recognized
     end
 
     it 'recognizes a backspace' do
-      %q{"\b"}.should be_recognized
+      %Q{"\b"}.should be_recognized
     end
 
     it 'recognizes a formfeed' do
-      %q{"\f"}.should be_recognized
+      %Q{"\f"}.should be_recognized
     end
 
     it 'recognizes a newline' do
-      %q{"\n"}.should be_recognized
+      %Q{"\n"}.should be_recognized
     end
 
     it 'recognizes a carriage return' do
-      %q{"\r"}.should be_recognized
+      %Q{"\r"}.should be_recognized
     end
 
     it 'recognizes a horizontal tab' do
-      %q{"\t"}.should be_recognized
+      %Q{"\t"}.should be_recognized
     end
   end
 
   context 'charaters by hexadecimal code' do
     it 'recognizes valid hexadecimal numbers' do
-      %q{"\u0000"}.should be_recognized
-      %q{"\u00ff"}.should be_recognized
-      %q{"\uA24b"}.should be_recognized
-      %q{"\uFfFf"}.should be_recognized
+      %Q{"\u0000"}.should be_recognized
+      %Q{"\u00ff"}.should be_recognized
+      %Q{"\uA24b"}.should be_recognized
+      %Q{"\uFfFf"}.should be_recognized
     end
 
     it 'does not recognize hexadicimal numbers with less than 4 digits' do
