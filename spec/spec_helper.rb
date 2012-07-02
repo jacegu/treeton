@@ -14,10 +14,10 @@ RSpec::Matchers.define :be_recognized do
   end
 end
 
-RSpec::Matchers.define :be_translated_to do |translation|
+RSpec::Matchers.define :be_translated_to do |expected|
   match do |text|
-    @translation = parser.parse(text).translate 
-    @translation == translation
+    @translation = parser.parse(text).translate
+    @translation == expected
   end
 
   description do |text|
@@ -25,7 +25,7 @@ RSpec::Matchers.define :be_translated_to do |translation|
   end
 
   failure_message_for_should do |text|
-    "expected #{text} to be translated into #{translation.inspect} but was translated to#{@translation}"
+    "expected #{text} to be translated into \"#{expected}\" but was translated to #{@translation}"
   end
 end
 
