@@ -1,15 +1,23 @@
+require 'treeton/grammar/whitespace'
+
 module Treeton
   grammar Object
+    include Whitespace
+
     rule open_curly_brace
-      [\s]* '{' [\s]*
+      whitespace* '{' whitespace*
     end
 
     rule close_curly_brace
-      [\s]* '}' [\s]*
+      whitespace* '}' whitespace*
     end
 
     rule colon
-      [\s]* ':' [\s]*
+      whitespace* ':' whitespace*
+    end
+
+    rule comma
+      whitespace* ',' whitespace*
     end
   end
 end

@@ -1,15 +1,19 @@
+require 'treeton/grammar/whitespace'
+
 module Treeton
   grammar Array
+    include Whitespace
+
     rule open_square_bracket
-      [\s]* '[' [\s]*
+      whitespace* '[' whitespace*
     end
 
     rule close_square_bracket
-      [\s]* ']' [\s]*
+      whitespace* ']' whitespace*
     end
 
     rule comma
-      [\s]* ',' [\s]*
+      whitespace* ',' whitespace*
     end
   end
 end
